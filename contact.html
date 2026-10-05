@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Neem contact op met Muhammed Gezer via het contactformulier.">
+  <title>Contact | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Externe JavaScript voor formuliervalidatie -->
+  <script src="js/contact.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1 class="logo">Mijn Portfolio</h1>
+      <nav aria-label="Hoofdnavigatie">
+        <ul>
+          <li><a href="index.html">Whoami</a></li>
+          <li><a href="projects.html">Projecten</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Contact Opnemen</h2>
+      <p>Heb je een vraag of wil je samenwerken? Vul onderstaand formulier in.</p>
+
+      <!-- Succesmelding container (toegankelijk met aria-live) -->
+      <div id="form-success" class="alert-success" role="status" aria-live="polite" hidden></div>
+
+      <!-- Formulier met novalidate om browser-standaard popups uit te schakelen -->
+      <form id="contact-form" novalidate>
+        
+        <!-- Veld 1: Naam -->
+        <div class="form-group">
+          <label for="name">Naam:</label>
+          <input type="text" id="name" name="name" aria-describedby="name-error">
+          <span id="name-error" class="error-msg" aria-live="polite"></span>
+        </div>
+
+        <!-- Veld 2: E-mail -->
+        <div class="form-group">
+          <label for="email">E-mailadres:</label>
+          <input type="email" id="email" name="email" aria-describedby="email-error">
+          <span id="email-error" class="error-msg" aria-live="polite"></span>
+        </div>
+
+        <!-- Veld 3: Bericht -->
+        <div class="form-group">
+          <label for="message">Bericht (minimaal 15 tekens):</label>
+          <textarea id="message" name="message" rows="5" aria-describedby="message-error"></textarea>
+          <span id="message-error" class="error-msg" aria-live="polite"></span>
+        </div>
+
+        <button type="submit">Verstuur bericht</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Muhammed Gezer - WPFW Semester 3</p>
+  </footer>
+</body>
+</html>

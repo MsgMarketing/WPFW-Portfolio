@@ -6,6 +6,8 @@
   <meta name="description" content="Technische blogs over software engineering, web development en usability.">
   <title>Blog | Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Externe JavaScript voor de blog-interactie -->
+  <script src="js/blog.js" defer></script>
 </head>
 <body>
   <header>
@@ -16,6 +18,7 @@
           <li><a href="index.html">Whoami</a></li>
           <li><a href="projects.html">Projecten</a></li>
           <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -25,16 +28,33 @@
     <section>
       <h2>Artikelen</h2>
       <div class="grid-container">
+        
+        <!-- Blogartikel 1 -->
         <article class="card">
           <h3>Het belang van Semantische HTML5</h3>
           <p class="meta">Gepubliceerd op: <time datetime="2026-09-22">22 september 2026</time></p>
           <p>Waarom semantische tags zoals &lt;header&gt;, &lt;main&gt; en &lt;article&gt; essentieel zijn voor screenreaders en zoekmachineoptimalisatie.</p>
+          
+          <div id="blog-details-1" class="blog-extra-content" hidden>
+            <p>Semantische elementen geven betekenis aan de structuur van een webpagina. In plaats van generieke `div`-tags te gebruiken, zorgen tags zoals `article` en `section` ervoor dat zoekmachines en schermlezers de logische opbouw van de pagina direct kunnen interpreteren en indexeren.</p>
+          </div>
+
+          <button type="button" class="toggle-btn" aria-expanded="false" aria-controls="blog-details-1">Lees meer</button>
         </article>
+
+        <!-- Blogartikel 2 -->
         <article class="card">
           <h3>De Request/Response-cyclus uitgelegd</h3>
           <p class="meta">Gepubliceerd op: <time datetime="2026-09-22">22 september 2026</time></p>
           <p>Een overzicht van wat er onder de motorkap gebeurt wanneer een browser een statisch HTML-bestand opvraagt via HTTP.</p>
+          
+          <div id="blog-details-2" class="blog-extra-content" hidden>
+            <p>Het proces start met een DNS-aanvraag om de hostnaam om te zetten in een IP-adres. Vervolgens vindt via TCP/TLS een beveiligde handshake plaats. De browser verstuurt een HTTP GET-verzoek en de webserver retourneert het HTML-bestand met een status 200 OK waarna de DOM-constructie begint.</p>
+          </div>
+
+          <button type="button" class="toggle-btn" aria-expanded="false" aria-controls="blog-details-2">Lees meer</button>
         </article>
+
       </div>
     </section>
   </main>
