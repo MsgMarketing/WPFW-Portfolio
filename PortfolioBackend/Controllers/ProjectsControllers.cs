@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioBackend.Models.DTOs;
 using PortfolioBackend.Services.Interfaces;
@@ -16,6 +17,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<ProjectReadDto>>> GetAll()
     {
         var projects = await _projectService.GetAllAsync();
@@ -23,6 +25,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [AllowAnonymous]
     public async Task<ActionResult<ProjectReadDto>> GetById(int id)
     {
         var project = await _projectService.GetByIdAsync(id);
@@ -31,6 +34,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Editor,Admin")]
     public async Task<ActionResult<ProjectReadDto>> Create(ProjectCreateDto dto)
     {
         var createdProject = await _projectService.CreateAsync(dto);
@@ -38,6 +42,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Editor,Admin")]
     public async Task<IActionResult> Update(int id, ProjectUpdateDto dto)
     {
         var success = await _projectService.UpdateAsync(id, dto);
@@ -46,6 +51,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Editor,Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         var success = await _projectService.DeleteAsync(id);
